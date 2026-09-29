@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { STATUSES } from '../utils/constants';
 import { formatSalary, getInterviewCountdown, getCompanyGradient } from '../utils/formatters';
+import AddToCalendarButton from './AddToCalendarButton';
 
 export default function BoardView({ 
   applications, 
@@ -181,16 +182,19 @@ export default function BoardView({
 
                     {/* Interview Countdown Badge if present */}
                     {countdown && (
-                      <div className="mt-2 pt-2 border-t border-zinc-800/60 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5 text-xs">
-                          <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-                          <span className="text-[11px] text-zinc-400 truncate max-w-[110px]">
+                      <div className="mt-2 pt-2 border-t border-zinc-800/60 flex items-center justify-between gap-1">
+                        <div className="flex items-center gap-1.5 text-xs min-w-0">
+                          <Calendar className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                          <span className="text-[11px] text-zinc-400 truncate max-w-[80px]">
                             {app.interview_round || 'Interview'}
                           </span>
                         </div>
-                        <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${countdown.badgeClass}`}>
-                          {countdown.text}
-                        </span>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${countdown.badgeClass}`}>
+                            {countdown.text}
+                          </span>
+                          <AddToCalendarButton application={app} variant="compact" />
+                        </div>
                       </div>
                     )}
 
