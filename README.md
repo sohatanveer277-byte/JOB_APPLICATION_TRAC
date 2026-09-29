@@ -21,6 +21,9 @@ An ATS and Notion/Linear-style fullstack dashboard designed for tech candidates 
   * Chronological interview schedule with live countdown badges (`Today!`, `Tomorrow`, `In 2 days`, `In 5 days`).
   * Top alert banner for the immediate upcoming interview round.
   * Preparation notes and round labels (*System Design*, *Live Coding*, *Take-home*).
+* **📅 1-Click "Add to Calendar":**
+  * **Google Calendar Link:** Opens pre-filled event with company, role, round, notes, and duration.
+  * **Download `.ics` File:** Native iCalendar download to open and sync with Apple Calendar, Outlook, etc. in 1 click.
 * **Notion-Style Database Table View:**
   * Sortable columns (Company, Role, Salary, Status, Interview Date).
   * Direct inline status dropdown to change application stage on the fly.

@@ -10,6 +10,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { getInterviewCountdown, getCompanyGradient } from '../utils/formatters';
+import AddToCalendarButton from './AddToCalendarButton';
 
 export default function TimelineView({ applications, onEditApplication }) {
   // Filter applications that have interview_date
@@ -124,18 +125,21 @@ export default function TimelineView({ applications, onEditApplication }) {
                   )}
 
                   {/* Footer actions */}
-                  <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between">
+                  <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between flex-wrap gap-2">
                     <span className="text-[11px] text-zinc-500">
                       Status: <strong className="text-zinc-300">{app.status}</strong>
                     </span>
 
-                    <button
-                      onClick={() => onEditApplication(app)}
-                      className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 hover:underline"
-                    >
-                      <Edit3 className="w-3.5 h-3.5" />
-                      <span>Update Prep Notes / Date</span>
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <AddToCalendarButton application={app} />
+                      <button
+                        onClick={() => onEditApplication(app)}
+                        className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 hover:underline px-2 py-1 rounded"
+                      >
+                        <Edit3 className="w-3.5 h-3.5" />
+                        <span>Update Prep Notes / Date</span>
+                      </button>
+                    </div>
                   </div>
 
                 </div>

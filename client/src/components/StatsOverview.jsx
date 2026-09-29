@@ -9,6 +9,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { getInterviewCountdown } from '../utils/formatters';
+import AddToCalendarButton from './AddToCalendarButton';
 
 export default function StatsOverview({ stats, onSelectApplication }) {
   if (!stats) return null;
@@ -45,13 +46,16 @@ export default function StatsOverview({ stats, onSelectApplication }) {
             </div>
           </div>
 
-          <button
-            onClick={() => onSelectApplication && onSelectApplication(nextInterview.id)}
-            className="self-start sm:self-center flex items-center gap-1.5 text-xs font-medium text-blue-300 hover:text-white bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 px-3 py-1.5 rounded-lg transition-colors"
-          >
-            <span>View Details</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-2 self-start sm:self-center">
+            <AddToCalendarButton application={nextInterview} />
+            <button
+              onClick={() => onSelectApplication && onSelectApplication(nextInterview.id)}
+              className="flex items-center gap-1.5 text-xs font-medium text-blue-300 hover:text-white bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 px-3 py-1.5 rounded-lg transition-colors"
+            >
+              <span>View Details</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       )}
 
